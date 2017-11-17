@@ -20,5 +20,3 @@ var vm = new FooViewModel();
 var view = stache("<span>Hello {{foo}}</span>");
 document.body.appendChild(view(vm));
 ```
-
-![it works](https://user-images.githubusercontent.com/361671/32925193-a2cf4bac-cb0e-11e7-86f8-245471667d3a.gif)
