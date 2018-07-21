@@ -7,16 +7,15 @@ __WIP__: This is only a proof of concept. Do not use.
 See the `test/tests/basics` folder for a full example. It looks like this:
 
 ```js
-var stache = require("can-stache");
-var workerObservable = require("can-worker-observable");
+const stache = require("can-stache");
+const { connect }  = require("can-worker-observable");
 
-var worker = new Worker("./path/to/worker.js");
+let worker = new Worker("./path/to/worker.js");
 
-var api = workerObservable.proxy(worker);
-var FooViewModel = api.FooViewModel;
+let { FooViewModel } = connect(worker);
 
-var vm = new FooViewModel();
+let vm = new FooViewModel();
 
-var view = stache("<span>Hello {{foo}}</span>");
+let view = stache("<span>Hello {{foo}}</span>");
 document.body.appendChild(view(vm));
 ```

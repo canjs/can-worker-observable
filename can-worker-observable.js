@@ -62,7 +62,7 @@ function linkedProxy(worker, name) {
   return proxy;
 }
 
-function proxy(worker) {
+function connect(worker) {
   if(!worker[API]) {
     worker[API] = new Proxy({}, {
       get: function(target, key, receiver) {
@@ -75,7 +75,7 @@ function proxy(worker) {
   return worker[API];
 }
 
-function link(name, object) {
+function provide(name, object) {
   if(arguments.length === 1) {
     object = name;
     name = object.name;
@@ -127,8 +127,8 @@ function setupListener() {
 }
 
 var workerObservable = {
-  link: link,
-  proxy: proxy
+  provide: provide,
+  connect: connect
 };
 
 module.exports = workerObservable;
