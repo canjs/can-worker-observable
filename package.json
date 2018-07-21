@@ -7,21 +7,35 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preversion": "npm test",
+    "postpublish": "git push --tags && git push",
+    "release:pre": "npm version prerelease && npm publish --tag=pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "testee": "testee --browsers firefox test/test.html",
+    "test": "npm run detect-cycle && npm run jshint && npm run testee",
+    "jshint": "jshint --config",
+    "build": "node build.js",
+    "detect-cycle": "detect-cyclic-packages --ignore done-serve"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "DoneJS Contributors",
+  "license": "MIT",
   "dependencies": {
     "can-cid": "^1.1.2",
     "can-namespace": "^1.0.0",
-    "can-observe": "^1.0.1",
+    "can-observe": "^2.2.0",
     "can-reflect": "^1.8.0",
     "can-symbol": "^1.4.2"
   },
   "devDependencies": {
-    "can-define": "^1.5.4",
-    "can-stache": "^3.13.4",
-    "steal": "^1.6.0"
+    "can-define": "^2.5.3",
+    "can-stache": "^4.10.0",
+    "detect-cyclic-packages": "^1.1.0",
+    "jshint": "^2.7.0",
+    "steal": "^2.0.0",
+    "steal-qunit": "^1.0.2",
+    "testee": "^0.8.0"
   }
 }
