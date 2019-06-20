@@ -1,5 +1,7 @@
 # can-worker-observable
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/canjs/can-worker-observable.svg)](https://greenkeeper.io/)
+
 Create observables that work in a web worker.
 
 __WIP__: This is only a proof of concept. Do not use.
