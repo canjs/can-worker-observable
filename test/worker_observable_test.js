@@ -34,7 +34,7 @@ QUnit.module("basics", function(hooks) {
 			var vm = new FooViewModel();
 
 			canReflect.onKeyValue(vm, "foo", function(newVal){
-				QUnit.equal(newVal, "bar", "got the value from the VM");
+				assert.equal(newVal, "bar", "got the value from the VM");
 				done();
 			});
 		});
